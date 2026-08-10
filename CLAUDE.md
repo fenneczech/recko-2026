@@ -5,10 +5,27 @@ HTML stránka**. Na repu pracují dva lidé, každý ze svého počítače, oba 
 
 Komunikuj česky.
 
+## POZOR: `index.html` je generovaný soubor
+
+`index.html` **není zdroj — je to výstup generátoru**, který má Klárka u sebe na
+počítači (přepínač `--web` vynechá fotky, PDF verze je s fotkami). Generátor ani
+jeho vstupní data zatím v repu nejsou.
+
+Z toho plyne tvrdé pravidlo:
+
+- **Needituj `index.html` ručně kvůli obsahu.** Při dalším spuštění generátoru se
+  tvoje změna ztratí, aniž si toho kdokoli všimne.
+- Když uživatel chce změnit obsah plánu, **řekni mu tohle** a domluvte se, jestli
+  změnu udělá generátor u Klárky, nebo jestli se do repa nejdřív dostane generátor.
+- Drobná oprava (překlep, rozbitý odkaz) je přijatelná, ale **napiš uživateli, že
+  ji bude potřeba promítnout i do zdroje**, jinak se při dalším generování vrátí.
+
+Dokud generátor nebude v repu, obsah mění primárně Klárka.
+
 ## Co to je
 
-- `index.html` **je celý web.** Žádný build, žádné závislosti, žádný framework.
-  Styly jsou inline v `<style>` v hlavičce.
+- `index.html` je jedna samostatná stránka — žádné závislosti, žádný framework,
+  styly inline v `<style>` v hlavičce.
 - Hosting: GitHub Pages, větev `main`, kořen repa.
 - Živá adresa: https://fenneczech.github.io/recko-2026/
 - Každý push do `main` se sám nasadí, živé je to do ~1 minuty.
