@@ -224,6 +224,46 @@ a{color:var(--acc)}
 footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   font-size:13.4px;color:var(--mut)}
 @media (max-width:640px){.srcs{columns:1}}
+
+/* ---------- obsah / hamburger ---------- */
+.tocbtn{position:fixed;top:14px;right:14px;z-index:60;display:flex;align-items:center;gap:8px;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:24px;
+  padding:9px 15px 9px 12px;cursor:pointer;font:600 13.5px var(--sans);
+  box-shadow:0 3px 14px rgba(0,0,0,.13)}
+.tocbtn:hover{border-color:var(--acc);color:var(--acc)}
+.bars{display:grid;gap:3.5px;width:17px}
+.bars i{display:block;height:2px;background:currentColor;border-radius:2px;transition:.18s}
+body.toc-open .bars i:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+body.toc-open .bars i:nth-child(2){opacity:0}
+body.toc-open .bars i:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.tocveil{position:fixed;inset:0;background:rgba(15,20,26,.42);opacity:0;pointer-events:none;
+  transition:opacity .2s;z-index:58}
+body.toc-open .tocveil{opacity:1;pointer-events:auto}
+.toc{position:fixed;top:0;right:0;height:100dvh;width:min(340px,86vw);z-index:59;
+  background:var(--card);border-left:1px solid var(--line);
+  transform:translateX(102%);transition:transform .24s ease;
+  display:flex;flex-direction:column;box-shadow:-6px 0 26px rgba(0,0,0,.16)}
+body.toc-open .toc{transform:none}
+.tochead{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 12px;
+  border-bottom:1px solid var(--line);font:700 16px var(--sans);flex:0 0 auto}
+.tocx{background:none;border:none;font-size:26px;line-height:1;color:var(--mut);cursor:pointer;padding:0 4px}
+.toclist{overflow-y:auto;padding:8px 0 24px;-webkit-overflow-scrolling:touch}
+.toc a{display:block;text-decoration:none;color:var(--ink)}
+.tl1{padding:9px 18px;font-size:14.6px;font-weight:600;border-left:3px solid transparent}
+.tl1:hover{background:var(--sbg)}
+.tl1.on{border-left-color:var(--acc);color:var(--acc);background:var(--sbg)}
+.tsub{padding:2px 0 6px}
+.tl2{display:flex!important;align-items:center;gap:9px;padding:6px 18px 6px 26px;
+  font-size:13.4px;color:var(--mut)!important;border-left:3px solid transparent}
+.tl2:hover{background:var(--sbg)}
+.tl2.on{border-left-color:var(--acc);color:var(--acc)!important;background:var(--sbg)}
+.tn2{flex:0 0 auto;min-width:20px;height:20px;padding:0 5px;border-radius:6px;color:#fff;
+  display:grid;place-items:center;font:700 11px var(--mono)}
+.tl2.base .tn2{background:var(--acc)} .tl2.move .tn2{background:var(--amber)}
+h2{scroll-margin-top:16px}
+@media (max-width:520px){.tocbtn .btxt{display:none} .tocbtn{padding:10px;border-radius:50%}}
+@media print{.tocbtn,.toc,.tocveil{display:none!important}}
+
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{size:A4;margin:13mm}
@@ -238,6 +278,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </style>
 </head>
 <body>
+<button class="tocbtn" id="tocbtn" aria-label="Obsah stránky" aria-expanded="false"><span class="bars"><i></i><i></i><i></i></span><span class="btxt">Obsah</span></button><div class="tocveil" id="tocveil"></div><nav class="toc" id="toc" aria-label="Obsah stránky"><div class="tochead">Obsah<button class="tocx" id="tocx" aria-label="Zavřít">&times;</button></div><div class="toclist"><a class="tl1" href="#ctyri-zakladny-ctyri-noci-na-ceste">Čtyři základny, čtyři noci na cestě</a><a class="tl1" href="#proc-zrovna-tahle-mista">Proč zrovna tahle místa</a><a class="tl1" href="#mapa-okruhu">Mapa okruhu</a><a class="tl1" href="#prejezdy-a-dny">Přejezdy a dny</a><a class="tl1" href="#zatez-za-volantem">Zátěž za volantem</a><a class="tl1" href="#den-po-dni">Den po dni</a><div class="tsub"><a class="tl2 move" href="#den1"><span class="tn2">1</span>Praha → NP Una (Bosna)</a><a class="tl2 move" href="#den2"><span class="tn2">2</span>Una → Štrbački buk → Jajce → Sarajevo</a><a class="tl2 base" href="#den3"><span class="tn2">3</span>Sarajevo, celý den bez auta</a><a class="tl2 move" href="#den4"><span class="tn2">4</span>Sarajevo → Mostar → Perast</a><a class="tl2 move" href="#den5"><span class="tn2">5</span>Perast → Vlorë → LLOGARA → Himarë</a><a class="tl2 move" href="#den6"><span class="tn2">6</span>Himarë → Blue Eye → Ioannina (Řecko)</a><a class="tl2 base" href="#den7"><span class="tn2">7</span>Ioannina: rokle Vikos a Zagori</a><a class="tl2 base" href="#den8"><span class="tn2">8</span>Ioannina: Meteora, nebo město a jezero</a><a class="tl2 move" href="#den9"><span class="tn2">9</span>Ioannina → Parga (moře)</a><a class="tl2 base" href="#den10"><span class="tn2">10</span>Parga: pláže a hrad</a><a class="tl2 base" href="#den11"><span class="tn2">11</span>Parga: lodí nebo do kaňonu</a><a class="tl2 move" href="#den12"><span class="tn2">12</span>Parga → Ohrid (Severní Makedonie)</a><a class="tl2 base" href="#den13"><span class="tn2">13</span>Ohrid: den bez auta</a><a class="tl2 move" href="#den14"><span class="tn2">14</span>Ohrid → Nový Sad</a><a class="tl2 move" href="#den15"><span class="tn2">15</span>Nový Sad → Praha</a></div><a class="tl1" href="#riviera-kde-zastavit">Riviéra: kde zastavit</a><a class="tl1" href="#jake-bude-pocasi">Jaké bude počasí</a><a class="tl1" href="#kolik-hotovosti">Kolik hotovosti</a><a class="tl1" href="#kde-se-najist">Kde se najíst</a><a class="tl1" href="#tipy-od-jirky-sedeho">Tipy od Jirky Šedého</a><a class="tl1" href="#hranice">Hranice</a><a class="tl1" href="#aplikace-do-mobilu">Aplikace do mobilu</a><a class="tl1" href="#internet-a-roaming">Internet a roaming</a><a class="tl1" href="#prakticke">Praktické</a><a class="tl1" href="#okruh-nebo-tam-a-zpatky-stejnou-cestou">Okruh, nebo tam a zpátky stejnou cestou?</a><a class="tl1" href="#den-rezervy-kam-ho-dat">Den rezervy: kam ho dát</a><a class="tl1" href="#kdyz-to-chcete-jinak">Když to chcete jinak</a><a class="tl1" href="#zdroje">Zdroje</a></div></nav>
 <header class="top"><div class="in">
   <h1>Řecko přes Balkán</h1>
   <p class="sub">Okruh autem z Prahy · 29. 8. – 12. 9. 2026 (+ neděle jako rezerva) · 2 lidi · čtyři základny</p>
@@ -251,7 +292,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </div></header>
 <div class="wrap">
 
-<h2>Čtyři základny, čtyři noci na cestě</h2>
+<h2 id="ctyri-zakladny-ctyri-noci-na-ceste">Čtyři základny, čtyři noci na cestě</h2>
 <p class="h2sub">15 dní naplánovaných, šestnáctý den je rezerva. Balit budete čtyřikrát.</p>
 <div class="basegrid"><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Sarajevo</b><span class="nights">2 noci</span></div><div class="basedays">dny 2–4</div><p>Kavárny, lanovka na Trebević, Tunel spasa. Výlety: bobová dráha, Vrelo Bosne.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ioannina</b><span class="nights">3 noci</span></div><div class="basedays">dny 6–9</div><p>Město u jezera, hrad, staré město. Výlety: rokle Vikos, Zagori, Meteora.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Parga</b><span class="nights">3 noci</span></div><div class="basedays">dny 9–12</div><p>Městečko pod hradem u moře, promenáda s restauracemi. Výlety: Paxos lodí, řeka Acheron.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ohrid</b><span class="nights">2 noci</span></div><div class="basedays">dny 12–14</div><p>UNESCO jezero, staré město. Den bez auta uprostřed cesty domů.</p></div></div></div>
 <div class="box" style="margin-top:14px">
@@ -261,7 +302,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p>Černá Hora a Albánie jsou vědomě jen průjezd. Na to, co nabízejí (Durmitor, kaňon Tary), by potřebovaly vlastní tři noci a ty se sem vedle Řecka nevejdou.</p>
 </div>
 
-<h2>Proč zrovna tahle místa</h2>
+<h2 id="proc-zrovna-tahle-mista">Proč zrovna tahle místa</h2>
 <p class="h2sub">Každá základna musela splnit tři věci zároveň: ležet na trase, mít kde večer jíst, a mít v okolí klidné výlety.</p>
 <div class="cards">
 <div class="box"><h4>Sarajevo</h4>
@@ -280,7 +321,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p>UNESCO jezero a staré město, 40 tisíc obyvatel, promenáda s restauracemi. Hlavní důvod je ale praktický: <b>rozděluje cestu domů</b>, aby se nejely tři dny po sobě. Zajížďka proti přímé trase je minimální a nocleh je nejlevnější z celé cesty.</p>
 <p class="alt"><b>Alternativa byla nejet nikam</b> a vzít návrat jako 11 h a pak 9 h. Tohle je lepší.</p></div>
 </div>
-<h2>Mapa okruhu</h2>
+<h2 id="mapa-okruhu">Mapa okruhu</h2>
 <p class="h2sub">Dolů po západě přes Balkán, nahoru po východě přes Makedonii. Žádný kilometr dvakrát.</p>
 <div class="mapbox"><svg viewBox="0 0 940 1140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa okruhu Praha, Balkán, Řecko">
 <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="currentColor"/></marker><filter id="sh" x="-3%" y="-3%" width="106%" height="106%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-opacity=".13"/></filter></defs>
@@ -445,13 +486,13 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p>Tunelem byste projeli pod horou a <b>přišli přesně o to, kvůli čemu tuhle trasu jedete</b> — výhled z 1 027 metrů na celou albánskou riviéru. Na křižovatce u Dukatu se držte staré silnice přes průsmyk. Je to jedna odbočka a stojí za celou cestu.</p>
 </div>
 
-<h2>Přejezdy a dny</h2>
+<h2 id="prejezdy-a-dny">Přejezdy a dny</h2>
 <p class="h2sub">Zvýrazněné řádky jsou dny na základně, kdy se nebalí. Časy jsou čistá jízda bez hranic a zastávek.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Den</th><th>Program</th><th>Vzdálenost</th><th>Za volantem</th><th>Hranice</th><th></th></tr></thead>
 <tbody><tr class="r-move"><td class="tn">1</td><td>Praha → NP Una</td><td class="num">870 km</td><td class="num">9–10 h</td><td class="brd">HR → BiH</td><td><span class="tag dlouhý">dlouhý</span></td></tr><tr class="r-move"><td class="tn">2</td><td>Una → Štrbački buk → Sarajevo</td><td class="num">300 km</td><td class="num">5,5 h</td><td class="brd">—</td><td></td></tr><tr class="r-base"><td class="tn">3</td><td>Sarajevo, den bez auta</td><td class="num">0 km</td><td class="num">bez auta</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">4</td><td>Sarajevo → Mostar → Perast</td><td class="num">330 km</td><td class="num">6,5 h</td><td class="brd">BiH → ČH (Hum)</td><td><span class="tag nabitý">nabitý</span></td></tr><tr class="r-move"><td class="tn">5</td><td>Perast → LLOGARA → Himarë</td><td class="num">450 km</td><td class="num">7,5 h</td><td class="brd">ČH → AL</td><td><span class="tag vrchol">vrchol</span></td></tr><tr class="r-move"><td class="tn">6</td><td>Himarë → Blue Eye → Ioannina</td><td class="num">200 km</td><td class="num">3,5 h</td><td class="brd">AL → GR (Kakavia)</td><td><span class="tag krátký">krátký</span></td></tr><tr class="r-base"><td class="tn">7</td><td>Ioannina: Vikos a Zagori</td><td class="num">90–120 km</td><td class="num">výlet</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-base"><td class="tn">8</td><td>Ioannina: Meteora nebo město</td><td class="num">0–300 km</td><td class="num">volba</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">9</td><td>Ioannina → Parga</td><td class="num">100 km</td><td class="num">1,5 h</td><td class="brd">—</td><td><span class="tag krátký">krátký</span></td></tr><tr class="r-base"><td class="tn">10</td><td>Parga: pláže a hrad</td><td class="num">0–20 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-base"><td class="tn">11</td><td>Parga: lodí nebo Acheron</td><td class="num">0–60 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">12</td><td>Parga → Ohrid</td><td class="num">400 km</td><td class="num">6 h</td><td class="brd">GR → MK (Niki)</td><td></td></tr><tr class="r-base"><td class="tn">13</td><td>Ohrid, den bez auta</td><td class="num">0 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">14</td><td>Ohrid → Nový Sad</td><td class="num">695 km</td><td class="num">8 h</td><td class="brd">MK → RS (Tabanovce)</td><td></td></tr><tr class="r-move"><td class="tn">15</td><td>Nový Sad → Praha</td><td class="num">770 km</td><td class="num">8 h</td><td class="brd">RS → HU (Horgoš)</td><td></td></tr></tbody></table></div>
 
-<h2>Zátěž za volantem</h2>
+<h2 id="zatez-za-volantem">Zátěž za volantem</h2>
 <p class="h2sub">Kolik hodin denně reálně sedíte v autě. Zelená jsou dny na základně, oranžová přejezdy, červená dva nejtěžší dny.</p>
 <div class="loadchart"><div class="lrow"><div class="lday">1</div><div class="ltrack"><div class="lbar hard" style="width:100.0%"></div></div><div class="lh hard">9.5 h</div><div class="llab">Praha → Una</div></div><div class="lrow"><div class="lday">2</div><div class="ltrack"><div class="lbar mid" style="width:57.9%"></div></div><div class="lh mid">5.5 h</div><div class="llab">→ Sarajevo</div></div><div class="lrow"><div class="lday">3</div><div class="ltrack"><div class="lbar rest" style="width:2.5%"></div></div><div class="lh rest">—</div><div class="llab">Sarajevo</div></div><div class="lrow"><div class="lday">4</div><div class="ltrack"><div class="lbar mid" style="width:68.4%"></div></div><div class="lh mid">6.5 h</div><div class="llab">→ Perast</div></div><div class="lrow"><div class="lday">5</div><div class="ltrack"><div class="lbar mid" style="width:78.9%"></div></div><div class="lh mid">7.5 h</div><div class="llab">→ Llogara → Himarë</div></div><div class="lrow"><div class="lday">6</div><div class="ltrack"><div class="lbar rest" style="width:36.8%"></div></div><div class="lh rest">3.5 h</div><div class="llab">→ Ioannina</div></div><div class="lrow"><div class="lday">7</div><div class="ltrack"><div class="lbar rest" style="width:15.8%"></div></div><div class="lh rest">1.5 h</div><div class="llab">Vikos, výlet</div></div><div class="lrow"><div class="lday">8</div><div class="ltrack"><div class="lbar rest" style="width:42.1%"></div></div><div class="lh rest">4 h</div><div class="llab">Meteora (volitelně)</div></div><div class="lrow"><div class="lday">9</div><div class="ltrack"><div class="lbar mid" style="width:15.8%"></div></div><div class="lh mid">1.5 h</div><div class="llab">→ Parga</div></div><div class="lrow"><div class="lday">10</div><div class="ltrack"><div class="lbar rest" style="width:3.2%"></div></div><div class="lh rest">0.3 h</div><div class="llab">Parga</div></div><div class="lrow"><div class="lday">11</div><div class="ltrack"><div class="lbar rest" style="width:8.4%"></div></div><div class="lh rest">0.8 h</div><div class="llab">Parga</div></div><div class="lrow"><div class="lday">12</div><div class="ltrack"><div class="lbar mid" style="width:63.2%"></div></div><div class="lh mid">6 h</div><div class="llab">→ Ohrid</div></div><div class="lrow"><div class="lday">13</div><div class="ltrack"><div class="lbar rest" style="width:2.5%"></div></div><div class="lh rest">—</div><div class="llab">Ohrid, volno</div></div><div class="lrow"><div class="lday">14</div><div class="ltrack"><div class="lbar mid" style="width:84.2%"></div></div><div class="lh mid">8 h</div><div class="llab">→ Nový Sad</div></div><div class="lrow"><div class="lday">15</div><div class="ltrack"><div class="lbar mid" style="width:84.2%"></div></div><div class="lh mid">8 h</div><div class="llab">→ Praha</div></div></div>
 <div class="box" style="margin-top:13px">
@@ -461,7 +502,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p><b>Den 1 zůstává dlouhý</b> (9,5 h). Rozdělit ho jde jedině nocí v Rakousku nebo Chorvatsku, což je noc navíc za nic. Vyjeďte brzy ráno.</p>
 </div>
 
-<h2>Den po dni</h2>
+<h2 id="den-po-dni">Den po dni</h2>
 <nav class="daynav"><a href="#den1" class="move">1</a><a href="#den2" class="move">2</a><a href="#den3" class="base">3</a><a href="#den4" class="move">4</a><a href="#den5" class="move">5</a><a href="#den6" class="move">6</a><a href="#den7" class="base">7</a><a href="#den8" class="base">8</a><a href="#den9" class="move">9</a><a href="#den10" class="base">10</a><a href="#den11" class="base">11</a><a href="#den12" class="move">12</a><a href="#den13" class="base">13</a><a href="#den14" class="move">14</a><a href="#den15" class="move">15</a></nav>
 <article class="day move" id="den1">
   <header class="dayhead">
@@ -629,7 +670,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   <p class="lead">Poslední etapa. Přes Horgoš a Budapešť, doma odpoledne.</p><div class="planbox"><div class="planhead">Jak den vyjde</div><div class="prow"><div class="ptime">07:30</div><div class="pwhat"><b>Odjezd z Nového Sadu</b></div></div><div class="prow"><div class="ptime">08:30</div><div class="pwhat"><b>Hranice Horgoš → Maďarsko</b><span>V neděli odpoledne bývá nejhorší, ráno v pohodě.</span></div></div><div class="prow"><div class="ptime">11:00</div><div class="pwhat"><b>Budapešť</b><span>Objet po M0. Poslední pauza na oběd.</span></div></div><div class="prow"><div class="ptime">16:00</div><div class="pwhat"><b>Praha</b><span>Doma. Neděle zůstává jako rezerva.</span></div></div></div><ul class="dayb"><li>Maďarská e-viněta cca 14 € na 10 dní.</li><li>Doma v sobotu odpoledne. <b>Neděle 13. 9. zůstává jako rezerva</b>, kdyby se cokoliv zdrželo.</li></ul><div class="sleep"><span class="slabel">Spaní</span><p>—</p></div>
 </article>
 
-<h2>Riviéra: kde zastavit</h2>
+<h2 id="riviera-kde-zastavit">Riviéra: kde zastavit</h2>
 <p class="h2sub">Zastávky pátého a šestého dne. Není nutné stihnout všechny — vyberte si podle nálady a času.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Zastávka</th><th>Kdy</th><th>Zdrží</th><th>Co tam je</th></tr></thead>
@@ -658,7 +699,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p><b>Šestý den</b> je jízdy jen 3,5 h, takže máte prostor na dvě delší zastávky. Buď Porto Palermo a Blue Eye, nebo Blue Eye a Butrint. Všechno tři nestihnete, pokud nevyrazíte v šest.</p>
 </div>
 
-<h2>Jaké bude počasí</h2>
+<h2 id="jake-bude-pocasi">Jaké bude počasí</h2>
 <p class="h2sub">Jedete přes přelom srpna a září a přes 1 000 metrů výškového rozdílu. Rozptyl je větší, než by člověk čekal.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Kde</th><th>Kdy</th><th>Den</th><th>Noc</th><th>Voda</th><th>Co to znamená</th></tr></thead>
@@ -711,7 +752,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </ul></div>
 </div>
 
-<h2>Kolik hotovosti</h2>
+<h2 id="kolik-hotovosti">Kolik hotovosti</h2>
 <p class="h2sub">Celkem <b>250–350 €</b> na cestu. Karta funguje ve městech a na dálnicích všude, tohle jsou výjimky.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Země</th><th>Hotovost</th><th>Na co</th></tr></thead>
@@ -726,7 +767,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </ul>
 </div>
 
-<h2>Kde se najíst</h2>
+<h2 id="kde-se-najist">Kde se najíst</h2>
 <p class="h2sub">Nevezete si jídlo, takže tohle je součást plánu, ne detail. Dobrá zpráva: Balkán a Řecko jsou na maso, ryby a sýry levné a všude.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Země</th><th>Kam jít</th><th>Co si dát</th></tr></thead>
@@ -761,7 +802,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </ul></div>
 </div>
 
-<h2>Tipy od Jirky Šedého</h2>
+<h2 id="tipy-od-jirky-sedeho">Tipy od Jirky Šedého</h2>
 <p class="h2sub">Konkrétní místa z jeho zprávy, rozbalená na skutečné názvy a zařazená ke dnům.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Místo</th><th>Kde</th><th>Co to je</th><th>Den</th></tr></thead>
@@ -775,7 +816,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 </ul>
 </div>
 
-<h2>Hranice</h2>
+<h2 id="hranice">Hranice</h2>
 <p class="h2sub">Časování přechodů je na téhle trase důležitější než rychlost jízdy.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Přechod</th><th>Kde</th><th>Čekání v sezóně</th><th>Poznámka</th></tr></thead>
@@ -786,7 +827,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <p>Trasa v tomhle plánu jede do Černé Hory z Bosny přechodem <b>Hum</b>, kde se čeká 15–30 minut.</p>
 </div>
 
-<h2>Aplikace do mobilu</h2>
+<h2 id="aplikace-do-mobilu">Aplikace do mobilu</h2>
 <p class="h2sub">Ptala ses na appku na kempy. Přidávám tři další, které se na téhle trase vyplatí.</p>
 <div class="cards"><div class="app"><div class="apphead"><b>BorderWatcher</b><span class="tag ok">nutnost</span></div><p>Reálné čekací doby na hranicích. Na téhle trase přejíždíte sedmkrát a Kakavia i Tabanovce umí ve špičce stát hodiny. Zkontrolovat ráno v den přejezdu.</p></div><div class="app"><div class="apphead"><b>Διόδια – Greek Tolls</b><span class="tag ok">Řecko</span></div><p>Řecké mýtné: spočítá cenu trasy dopředu, ukáže mýtné brány. Řecko má distanční systém, takže se to hodí.</p></div><div class="app"><div class="apphead"><b>Mapy.cz offline</b><span class="tag ok">offline</span></div><p>V albánských horách a v Zagori mizí signál. Stáhnout offline mapy všech zemí PŘED odjezdem, ne až na místě.</p></div><div class="app"><div class="apphead"><b>Park4Night</b><span class="tag ok">hlavní</span></div><p>370 000+ míst, nejlepší pokrytí Evropy. Placená verze 9,99 €/rok dá offline mapy, filtry a satelitní pohled.</p></div><div class="app"><div class="apphead"><b>iOverlander</b><span class="tag ok">na Balkán</span></div><p>Zdarma. Silný přesně tam, kde Park4Night řídne: Balkán, Albánie. Divoká a netradiční místa.</p></div><div class="app"><div class="apphead"><b>Campercontact</b><span class="tag ok">klasické kempy</span></div><p>38 000 ověřených kempů a stellplatzů, žádný divoký kemp. Když chcete jistotu a sprchu.</p></div><div class="app"><div class="apphead"><b>camping.info</b><span class="tag ok">recenze</span></div><p>Recenze a hodnocení evropských kempů, dobré na ověření kvality předem.</p></div></div>
 <div class="box" style="margin-top:13px">
@@ -796,7 +837,7 @@ Placená verze Park4Night za 9,99 € na rok se vyplatí kvůli offline mapám: 
 Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 </div>
 
-<h2>Internet a roaming</h2>
+<h2 id="internet-a-roaming">Internet a roaming</h2>
 <p class="h2sub">Trasa míchá EU a ne-EU země. To je celý problém — a taky celé řešení.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Země na trase</th><th>Co platí</th><th>Co s tím</th></tr></thead>
@@ -853,7 +894,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p>Před koupí si projděte seznam zemí balíčku a ověřte, že tam jsou <b>všech pět</b>: Bosna, Černá Hora, Albánie, Severní Makedonie, Srbsko. Právě na tomhle většina „evropských“ balíčků selže.</p>
 </div>
 
-<h2>Praktické</h2>
+<h2 id="prakticke">Praktické</h2>
 <div class="cards">
 <div class="box"><h4>Doklady</h4><ul>
 <li>Občanský průkaz stačí do všech zemí na trase. Do Černé Hory musí být biometrický.</li>
@@ -899,7 +940,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p>V Bosně jsou pořád neodminované oblasti. Nechoďte a nezajíždějte mimo značené cesty a nestanujte na místě, které není zjevně používané. Jirka na to upozorňuje taky a je to nejdůležitější věta z celé jeho zprávy.</p>
 </div>
 
-<h2>Okruh, nebo tam a zpátky stejnou cestou?</h2>
+<h2 id="okruh-nebo-tam-a-zpatky-stejnou-cestou">Okruh, nebo tam a zpátky stejnou cestou?</h2>
 <p class="h2sub">Ptala ses, jestli je okruh nutný. Není, ale čísla mluví pro něj.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Cesta domů z Pargy</th><th>Vzdálenost</th><th>Za volantem</th><th>Charakter</th></tr></thead>
@@ -918,7 +959,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p>Vedlejší efekt: rozdělením pátého dne na dva se <b>zkrátil nejtěžší přejezd</b> z 8,5 h na 7,5 a 3,5 h. Delší trasa tady paradoxně znamená kratší dny za volantem.</p>
 </div>
 
-<h2>Den rezervy: kam ho dát</h2>
+<h2 id="den-rezervy-kam-ho-dat">Den rezervy: kam ho dát</h2>
 <p class="h2sub">Plán má 15 dní, šestnáctý (neděle 13. 9.) je volný. Nemusíte se rozhodovat předem.</p>
 <div class="cards">
 <div class="box"><h4>1. Polštář na zpoždění</h4>
@@ -931,7 +972,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p>Obětujte v tomhle pořadí: <b>den 13</b> (Ohrid, volno) → jedna noc z <b>Pargy</b> → jedna noc z <b>Ioanniny</b>. Nikdy neškrtejte Ohrid celý, jinak jedete tři dny po sobě.</p></div>
 </div>
 
-<h2>Když to chcete jinak</h2>
+<h2 id="kdyz-to-chcete-jinak">Když to chcete jinak</h2>
 <div class="cards">
 <div class="box"><h4>Nechcete první den 870 km</h4>
 <p>Rozdělit se dá jedině nocí v Chorvatsku (Plitvice) nebo Rakousku. Je to noc navíc za místo, které stejně jen projedete. Lepší je vyjet v pět ráno a mít to za sebou.</p></div>
@@ -945,7 +986,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p>Přidejte Černou Horu jako plnou základnu: Durmitor, kaňon Tary, Černé jezero a klášter Ostrog stojí za dvě až tři noci. Autor webu Řecko nás baví na tenhle okruh potřeboval 23 dní a 4 700 km.</p></div>
 </div>
 
-<h2>Zdroje</h2>
+<h2 id="zdroje">Zdroje</h2>
 <p class="h2sub">Vše ověřeno v srpnu 2026, žádný zdroj starší dvou let. Ceny, otevírací doby a stav silnic se mění, před odjezdem překontrolujte.</p>
 <ol class="srcs"><li><a href="https://mzv.gov.cz/sarajevo/cz/viza_a_konzularni_informace/cestujeme_do_bosny_a_hercegoviny/cestovani_do_bosny_a_hercegoviny_na.html" target="_blank" rel="noopener">MZV ČR — do BiH na občanský průkaz</a></li><li><a href="https://mzv.gov.cz/skopje/cz/viza_a_konzularni_infomrace/pri_cestach_do_makedonske_republiky.html" target="_blank" rel="noopener">MZV ČR — Makedonie, Albánie, ČH, Srbsko na OP</a></li><li><a href="https://www.montenegropulse.com/montenegro-croatia-border.html" target="_blank" rel="noopener">Montenegro Pulse — hranice HR/ČH, čekání 2–5 h</a></li><li><a href="https://croatiaunscripted.com/montenegro-border-delays/" target="_blank" rel="noopener">Croatia Unscripted — fronta 15 km, čekání až 10 h (HAK)</a></li><li><a href="https://borderalarm.com/bottlenecks/karasovici-debeli-brijeg/" target="_blank" rel="noopener">BorderAlarm — živé čekací doby</a></li><li><a href="https://easybalkantransfers.com/blog/border-crossings-balkans/" target="_blank" rel="noopener">Balkan Border Crossings 2026</a></li><li><a href="https://www.fuel-prices.eu/" target="_blank" rel="noopener">Ceny paliva v Evropě</a></li><li><a href="https://www.tolls.eu/greece" target="_blank" rel="noopener">Mýtné Řecko 2026</a></li><li><a href="https://www.tovima.com/society/egnatia-motorway-toll-prices-rise-from-january-2026/" target="_blank" rel="noopener">Egnatia — zdražení od 1. 1. 2026</a></li><li><a href="https://himara.net/blog/albania-road-conditions-2026" target="_blank" rel="noopener">Stav silnic v Albánii 2026</a></li><li><a href="https://tours.ba/guides/strbacki-buk/" target="_blank" rel="noopener">Štrbački buk — vstup a příjezd</a></li><li><a href="https://www.camping.info/en/campsite/camp-buk/reviews" target="_blank" rel="noopener">Camp BUK — recenze</a></li><li><a href="https://www.tripadvisor.com/Attraction_Review-g294450-d26305743-Reviews-Sarajevska_zicara-Sarajevo_Sarajevo_Canton_Federation_of_Bosnia_and_Herzegovina.html" target="_blank" rel="noopener">Lanovka Trebević a bobová dráha</a></li><li><a href="https://visitmeteora.travel/faq/" target="_blank" rel="noopener">Meteora — vstupné a otevírací doba 2026</a></li><li><a href="https://www.alltrails.com/trail/greece/epirus--3/papingo-vikos" target="_blank" rel="noopener">Vikos — aktuální stav stezek</a></li><li><a href="https://greektriplanner.me/blog/zagori-villages-travel-guide" target="_blank" rel="noopener">Zagori — průvodce 2026</a></li><li><a href="https://greektriplanner.me/blog/pelion-travel-guide" target="_blank" rel="noopener">Pelion — průvodce 2026</a></li><li><a href="https://easybalkantransfers.com/blog/balkans-currency-guide/" target="_blank" rel="noopener">Platby kartou vs. hotovost na Balkáně</a></li><li><a href="https://wise.com/gb/blog/cash-or-card-in-greece" target="_blank" rel="noopener">Platby v Řecku 2026</a></li><li><a href="https://www.itimaker.com/blog/where-to-stay-ohrid" target="_blank" rel="noopener">Ohrid — kde bydlet 2026</a></li><li><a href="https://adriaticways.com/durmitor-national-park/" target="_blank" rel="noopener">Durmitor a Tara — kolik dní</a></li><li><a href="https://www.reckonasbavi.cz/autem-do-chorvatska-cerne-hory-albanie-a-recka/" target="_blank" rel="noopener">Řecko nás baví — Jadranská cesta autem</a></li><li><a href="https://www.reckonasbavi.cz/rady-na-cesty/recko-autem-nabizi-dobrodruzstvi-pro-vsechny-generace/" target="_blank" rel="noopener">Řecko nás baví — 4 trasy do Řecka autem</a></li><li><a href="https://www.mbenzin.cz/Ceny-benzinu-a-nafty-v-evrope" target="_blank" rel="noopener">Ceny nafty v EU k 3. 8. 2026 (mBenzin)</a></li><li><a href="https://himara.net/blog/llogara-pass-drive" target="_blank" rel="noopener">Llogara Pass — průvodce 2026</a></li><li><a href="https://greektriplanner.me/blog/ioannina-travel-guide" target="_blank" rel="noopener">Ioannina — průvodce 2026</a></li><li><a href="https://www.cnn.com/travel/article/parga-epirus-greece/index.html" target="_blank" rel="noopener">Parga a Sivota (CNN)</a></li><li><a href="https://theblogtrotter.com/destinations/montenegro/perast/" target="_blank" rel="noopener">Perast — restaurace a ceny</a></li><li><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/06/04/roam-like-at-home-council-authorises-talks-on-extending-scheme-to-western-balkans-partners/" target="_blank" rel="noopener">Roaming: Rada EU — jednání o rozšíření na Balkán, 6/2026</a></li><li><a href="https://en.wikipedia.org/wiki/Regional_Roaming_Agreement" target="_blank" rel="noopener">Western Balkans roaming agreement (Wikipedia)</a></li><li><a href="https://esim.monster/esim-balkan/" target="_blank" rel="noopener">eSIM pro Balkán — srovnání 2026</a></li><li><a href="https://www.montenegro-urlaub.com/en/mobile-internet-for-tourists-in-montenegro/" target="_blank" rel="noopener">Mobilní internet v Černé Hoře 2026</a></li><li><a href="https://www.climatestotravel.com/climate/bosnia-herzegovina" target="_blank" rel="noopener">Klima Bosny a Hercegoviny</a></li><li><a href="https://www.climatestotravel.com/climate/albania" target="_blank" rel="noopener">Klima Albánie</a></li><li><a href="https://www.climatestotravel.com/climate/montenegro" target="_blank" rel="noopener">Klima Černé Hory</a></li><li><a href="https://www.climatestotravel.com/climate/greece" target="_blank" rel="noopener">Klima Řecka</a></li><li><a href="https://www.climatestotravel.com/climate/macedonia" target="_blank" rel="noopener">Klima Severní Makedonie</a></li><li><a href="https://seatemperature.info/september/greece-water-temperature.html" target="_blank" rel="noopener">Teplota moře v Jónském moři v září</a></li><li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Obrysy států: Natural Earth (public domain)</a></li></ol>
 
@@ -954,4 +995,33 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p><b>Mapa:</b> obrysy států Natural Earth (public domain), body a trasy vlastní.</p>
 <p>Verze 2 · 10. 8. 2026 · Claude Opus 5</p>
 </footer>
-</div></body></html>
+</div><script>
+(function(){
+  var b=document.getElementById('tocbtn'), t=document.getElementById('toc'),
+      v=document.getElementById('tocveil'), x=document.getElementById('tocx');
+  function open(){document.body.classList.add('toc-open');b.setAttribute('aria-expanded','true');}
+  function close(){document.body.classList.remove('toc-open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(){document.body.classList.contains('toc-open')?close():open();});
+  v.addEventListener('click',close); x.addEventListener('click',close);
+  t.addEventListener('click',function(e){if(e.target.tagName==='A')close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  // zvýraznění aktuální sekce
+  var links={}, tgts=[];
+  t.querySelectorAll('a').forEach(function(a){
+    var id=a.getAttribute('href').slice(1), el=document.getElementById(id);
+    if(el){links[id]=a; tgts.push(el);}
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var a=links[e.target.id]; if(!a) return;
+        if(e.isIntersecting){
+          t.querySelectorAll('a.on').forEach(function(o){o.classList.remove('on');});
+          a.classList.add('on');
+        }
+      });
+    },{rootMargin:'-15% 0px -75% 0px'});
+    tgts.forEach(function(el){io.observe(el);});
+  }
+})();
+</script></body></html>
