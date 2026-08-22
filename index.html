@@ -165,6 +165,16 @@ svg .legt{font:12px var(--sans);fill:var(--ink)}
 .spotbody p{margin:0 0 8px;color:var(--mut)}
 .spotbody b{color:var(--ink)}
 .spotbody .why{font-size:13.2px;font-style:italic;margin-top:11px}
+.bmapwrap{margin:10px 0 4px;overflow-x:auto}
+.bmap{display:block;width:100%;max-width:520px;height:auto;margin:0 auto}
+.bleg{fill:none;stroke:var(--acc);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.bleg.alt{stroke:#0369a1;stroke-dasharray:8 6;stroke-width:2}
+.bnd{stroke:var(--card);stroke-width:2}
+.bnd.via{fill:#8b98a6}.bnd.brd{fill:var(--warn)}.bnd.stop{fill:var(--amber)}.bnd.goal{fill:var(--acc)}
+.blbl{font:600 12px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.blbl.b{font-weight:700}.blbl.g{font-weight:800;font-size:12.5px;fill:var(--acc)}
+.bsub{font:10.5px var(--mono);fill:var(--mut);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.bsub.alt{fill:#0369a1}
 .basectry{font:11px var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-top:2px}
 .mapfab{position:fixed;right:14px;bottom:14px;z-index:58;display:flex;align-items:center;gap:7px;
   padding:11px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);
@@ -331,7 +341,7 @@ h2{scroll-margin-top:16px}
 <div class="wrap">
 
 <h2 id="ctyri-zakladny-ctyri-noci-na-ceste">Čtyři základny, čtyři noci na cestě</h2>
-<p class="h2sub">15 dní naplánovaných, šestnáctý den je rezerva. Balit budete čtyřikrát.</p>
+<p class="h2sub">15 dní naplánovaných, šestnáctý den je rezerva. Balit budete čtyřikrát. </p>
 <div class="basegrid"><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Sarajevo</b><span class="nights">2 noci</span></div><div class="basectry">Bosna a Hercegovina</div><div class="basedays">dny 2–4</div><p>Kavárny, lanovka na Trebević, Tunel spasa. Výlety: bobová dráha, Vrelo Bosne.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ioannina</b><span class="nights">3 noci</span></div><div class="basectry">Řecko, Epirus</div><div class="basedays">dny 6–9</div><p>Město u jezera, hrad, staré město. Výlety: rokle Vikos, Zagori, Meteora.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Parga</b><span class="nights">3 noci</span></div><div class="basectry">Řecko, Jónské pobřeží</div><div class="basedays">dny 9–12</div><p>Městečko pod hradem u moře, promenáda s restauracemi. Výlety: Paxos lodí, řeka Acheron.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ohrid</b><span class="nights">2 noci</span></div><div class="basectry">Severní Makedonie</div><div class="basedays">dny 12–14</div><p>UNESCO jezero, staré město. Den bez auta uprostřed cesty domů.</p></div></div></div>
 <div class="box" style="margin-top:14px">
 <h4>Jak to funguje</h4>
@@ -559,6 +569,7 @@ h2{scroll-margin-top:16px}
 <thead><tr><th>Den</th><th>Program</th><th>Vzdálenost</th><th>Za volantem</th><th>Hranice</th><th></th></tr></thead>
 <tbody><tr class="r-move"><td class="tn">1</td><td>Praha → NP Una</td><td class="num">930 km</td><td class="num">14,5 h</td><td class="brd">HR → BiH</td><td><span class="tag dlouhý">dlouhý</span></td></tr><tr class="r-move"><td class="tn">2</td><td>Una → Štrbački buk → Sarajevo</td><td class="num">300 km</td><td class="num">5,5 h</td><td class="brd">—</td><td></td></tr><tr class="r-base"><td class="tn">3</td><td>Sarajevo, den bez auta</td><td class="num">0 km</td><td class="num">bez auta</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">4</td><td>Sarajevo → Mostar → Perast</td><td class="num">330 km</td><td class="num">6,5 h</td><td class="brd">BiH → ČH (Hum)</td><td><span class="tag nabitý">nabitý</span></td></tr><tr class="r-move"><td class="tn">5</td><td>Perast → LLOGARA → Himarë</td><td class="num">450 km</td><td class="num">7,5 h</td><td class="brd">ČH → AL</td><td><span class="tag vrchol">vrchol</span></td></tr><tr class="r-move"><td class="tn">6</td><td>Himarë → Blue Eye → Ioannina</td><td class="num">200 km</td><td class="num">3,5 h</td><td class="brd">AL → GR (Kakavia)</td><td><span class="tag krátký">krátký</span></td></tr><tr class="r-base"><td class="tn">7</td><td>Ioannina: Vikos a Zagori</td><td class="num">90–120 km</td><td class="num">výlet</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-base"><td class="tn">8</td><td>Ioannina: Meteora nebo město</td><td class="num">0–300 km</td><td class="num">volba</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">9</td><td>Ioannina → Parga</td><td class="num">100 km</td><td class="num">1,5 h</td><td class="brd">—</td><td><span class="tag krátký">krátký</span></td></tr><tr class="r-base"><td class="tn">10</td><td>Parga: pláže a hrad</td><td class="num">0–20 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-base"><td class="tn">11</td><td>Parga: lodí nebo Acheron</td><td class="num">0–60 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">12</td><td>Parga → Ohrid</td><td class="num">400 km</td><td class="num">6 h</td><td class="brd">GR → MK (Niki)</td><td></td></tr><tr class="r-base"><td class="tn">13</td><td>Ohrid, den bez auta</td><td class="num">0 km</td><td class="num">volno</td><td class="brd">—</td><td><span class="tag základna">základna</span></td></tr><tr class="r-move"><td class="tn">14</td><td>Ohrid → Nový Sad</td><td class="num">695 km</td><td class="num">8 h</td><td class="brd">MK → RS (Tabanovce)</td><td></td></tr><tr class="r-move"><td class="tn">15</td><td>Nový Sad → Praha</td><td class="num">770 km</td><td class="num">8 h</td><td class="brd">RS → HU (Horgoš)</td><td></td></tr></tbody></table></div>
 
+<p class="h2sub" style="margin-top:-4px"><b>Pozor na dvě různá čísla.</b> Sloupec „čas" v tabulce nahoře je <b>celý den na cestě</b> — jízda plus pauzy plus hranice. Graf níž ukazuje jen <b>čistou jízdu za volantem</b>. U prvního dne je to 14,5 h na cestě, z toho 12,5 h za volantem; zbytek jsou zastávky a odbavení na hranicích.</p>
 <h2 id="zatez-za-volantem">Zátěž za volantem</h2>
 <p class="h2sub">Kolik hodin denně reálně sedíte za volantem, bez pauz a hranic. Zelená jsou dny na základně, oranžová přejezdy, červená dva nejtěžší dny.</p>
 <div class="loadchart"><div class="lrow"><div class="lday">1</div><div class="ltrack"><div class="lbar hard" style="width:100.0%"></div></div><div class="lh hard">12.5 h</div><div class="llab">Praha → Una</div></div><div class="lrow"><div class="lday">2</div><div class="ltrack"><div class="lbar mid" style="width:44.0%"></div></div><div class="lh mid">5.5 h</div><div class="llab">→ Sarajevo</div></div><div class="lrow"><div class="lday">3</div><div class="ltrack"><div class="lbar rest" style="width:2.5%"></div></div><div class="lh rest">—</div><div class="llab">Sarajevo</div></div><div class="lrow"><div class="lday">4</div><div class="ltrack"><div class="lbar mid" style="width:52.0%"></div></div><div class="lh mid">6.5 h</div><div class="llab">→ Perast</div></div><div class="lrow"><div class="lday">5</div><div class="ltrack"><div class="lbar mid" style="width:60.0%"></div></div><div class="lh mid">7.5 h</div><div class="llab">→ Llogara → Himarë</div></div><div class="lrow"><div class="lday">6</div><div class="ltrack"><div class="lbar rest" style="width:28.0%"></div></div><div class="lh rest">3.5 h</div><div class="llab">→ Ioannina</div></div><div class="lrow"><div class="lday">7</div><div class="ltrack"><div class="lbar rest" style="width:20.0%"></div></div><div class="lh rest">2.5 h</div><div class="llab">Vikos, výlet</div></div><div class="lrow"><div class="lday">8</div><div class="ltrack"><div class="lbar rest" style="width:32.0%"></div></div><div class="lh rest">4 h</div><div class="llab">Meteora (volitelně)</div></div><div class="lrow"><div class="lday">9</div><div class="ltrack"><div class="lbar mid" style="width:12.0%"></div></div><div class="lh mid">1.5 h</div><div class="llab">→ Parga</div></div><div class="lrow"><div class="lday">10</div><div class="ltrack"><div class="lbar rest" style="width:2.5%"></div></div><div class="lh rest">0.3 h</div><div class="llab">Parga</div></div><div class="lrow"><div class="lday">11</div><div class="ltrack"><div class="lbar rest" style="width:6.4%"></div></div><div class="lh rest">0.8 h</div><div class="llab">Parga</div></div><div class="lrow"><div class="lday">12</div><div class="ltrack"><div class="lbar mid" style="width:48.0%"></div></div><div class="lh mid">6 h</div><div class="llab">→ Ohrid</div></div><div class="lrow"><div class="lday">13</div><div class="ltrack"><div class="lbar rest" style="width:2.5%"></div></div><div class="lh rest">—</div><div class="llab">Ohrid, volno</div></div><div class="lrow"><div class="lday">14</div><div class="ltrack"><div class="lbar mid" style="width:64.0%"></div></div><div class="lh mid">8 h</div><div class="llab">→ Nový Sad</div></div><div class="lrow"><div class="lday">15</div><div class="ltrack"><div class="lbar mid" style="width:64.0%"></div></div><div class="lh mid">8 h</div><div class="llab">→ Praha</div></div></div>
@@ -577,7 +588,7 @@ h2{scroll-margin-top:16px}
     <div class="daytitles">
       <div class="daydate">so 29. 8. <span class="kindtag move">přejezd</span></div>
       <h3>Praha → NP Una (Bosna)</h3>
-      <div class="daymeta"><span class="m km">930 km</span><span class="m hrs">14,5 h</span><span class="m ctry">CZ · AT · SI · HR · BiH</span></div>
+      <div class="daymeta"><span class="m km">930 km</span><span class="m hrs">14,5 h na cestě</span><span class="m ctry">CZ · AT · SI · HR · BiH</span></div>
     </div>
   </header>
   <p class="lead">Jediný opravdu dlouhý den. Odbýt ho, dokud jste svěží.</p><div class="planbox"><div class="planhead">Jak den vyjde</div>
@@ -613,20 +624,38 @@ h2{scroll-margin-top:16px}
 </div>
 </details><div class="jirka"><span class="jlabel">Jirka Šedý</span><p>„Bihać stojí za návštěvu, přespali jsme tam. A do Bosny můžeš na občanku.“</p></div><div class="warn"><span class="wlabel">Pozor</span><p><b>Ta pověstná vlna jede opačným směrem než vy.</b> Poslední srpnová sobota je vrchol návratů z Jadranu na sever, vy jedete na jih. Navíc to letos vůbec není konec prázdnin tam, kudy jedete: Bavorsko je má do 14. 9., Bádensko-Württembersko do 12. 9., Štýrsko a Korutany do 13. 9., Vídeň a Dolní Rakousko do 6. 9. Poslední prázdninový víkend je to jen pro Čechy, a ti se vracejí domů. Skutečný dopravní vrchol na rakouských dálnicích padne až na první zářijový víkend. Odjezd v šest si stejně nechte, ale hnát to nemusíte — kdyby se cesta protáhla, přespěte o kus dřív (Plitvice, Karlovac) a do Sarajeva dojeďte druhý den.</p></div>
 <details class="spot">
-<summary><span class="spotlabel">Plán B</span> Kde přespat, kdyby to nevyšlo</summary>
+<summary><span class="spotlabel">Plán B</span> Kde přespat, kdyby to nevyšlo — včetně stanu</summary>
 <div class="spotbody">
-<p>Rozhodovat se má <b>podle času, ne podle únavy</b> — únava přijde pozdě. Pravidlo: <b>když jste v 17:00 pořád před Karlovcem, na Unu to dnes nedáte</b> a je lepší zastavit, než se hnát do tmy po bosenské okresce.</p>
+<p>Rozhodovat se má <b>podle času, ne podle únavy</b> — únava přijde pozdě. Pravidlo: <b>když jste v 17:00 pořád před Karlovcem, na Unu to dnes nedáte.</b></p>
+<div class="bmapwrap"><svg viewBox="0 0 330 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa záložních míst mezi Záhřebem a Kulen Vakuf" class="bmap">
+<path class="bleg" d="M237,40 L42,123 L60,217 L84,257 L171,290 L188,292 L287,358"/>
+<path class="bleg alt" d="M42,123 L34,386 L227,358 L223,346 L188,292"/>
+<circle class="bnd via" cx="237" cy="40" r="4"/><text class="blbl" x="229" y="36" text-anchor="end">Záhřeb</text>
+<circle class="bnd stop" cx="42" cy="123" r="6"/><text class="blbl b" x="52" y="119" text-anchor="start">Karlovac</text><text class="bsub" x="52" y="133" text-anchor="start">3,5 h před cílem</text>
+<circle class="bnd stop" cx="60" cy="217" r="6"/><text class="blbl b" x="70" y="213" text-anchor="start">Rastoke / Slunj</text><text class="bsub" x="70" y="227" text-anchor="start">2,5 h · vodopády mezi domy</text>
+<circle class="bnd stop" cx="84" cy="257" r="6"/><text class="blbl b" x="94" y="253" text-anchor="start">Rakovica / Plitvice</text><text class="bsub" x="94" y="267" text-anchor="start">2 h · nejvíc apartmánů</text>
+<circle class="bnd brd" cx="171" cy="290" r="4"/><text class="bsub" x="166" y="284" text-anchor="end">Izačić</text>
+<circle class="bnd stop" cx="188" cy="292" r="6"/><text class="blbl b" x="196" y="288" text-anchor="start">Bihać</text><text class="bsub" x="196" y="302" text-anchor="start">45 min před cílem</text>
+<circle class="bnd brd" cx="227" cy="358" r="4"/><text class="bsub" x="219" y="345" text-anchor="end">Užljebić</text>
+<circle class="bnd goal" cx="287" cy="358" r="7"/><text class="blbl g" x="279" y="378" text-anchor="end">KULEN VAKUF</text>
+<text class="bsub alt" x="40" y="400" text-anchor="start">objezd po A1, když stojí Izačić</text>
+</svg></div><p class="why" style="margin-top:0">Mapka má vodorovnou osu roztaženou, aby byla čitelná — ve skutečnosti je to úzký pás od Záhřebu k jihovýchodu. Modrá čárkovaná je objezd po A1 na Užljebić, když stojí Izačić.</p>
 <h5>Rastoke u Slunje — 2,5 h před cílem</h5>
-<p>Nejhezčí ze záloh, a stojí za zastávku i kdyby všechno klapalo. Vesnice postavená <b>na kaskádách řeky Slunjčice</b>, kde vodopády tečou přímo mezi domy a pod starými vodními mlýny. Říká se jí malé Plitvice. Leží přímo na D1, tedy na trase k Izačići. Penzionů a apartmánů je tu dost, ale v sezóně se plní — volat dopředu, ne se spoléhat na tabulku Zimmer frei.</p>
+<p>Nejhezčí ze záloh a stojí za zastávku, i kdyby všechno klapalo. Vesnice na kaskádách řeky Slunjčice, kde <b>vodopády tečou přímo mezi domy</b> a pod starými mlýny. Říká se jí malé Plitvice. Leží přímo na D1.</p>
+<p><b>Pod stan:</b> <b>Camp Rastoke</b>, 500 m od centra Slunje a kilometr od Rastok — 17 velkých parcel ve stínu borovic, s elektřinou a vodou. Kousek dál <b>Camping Puškarić</b> v jižní části Slunje, taky kilometr od Rastok.</p>
 <h5>Plitvická oblast — 2 h před cílem</h5>
-<p>Rakovica, Grabovac a Korenica jsou vesnice podél D1 s velkou nabídkou apartmánů, protože žijí z Plitvic. <b>Nejlepší poměr dostupnosti a ceny</b> ze všech záloh. Nevýhoda: v sobotu odpoledne je tu hustý provoz od návštěvníků parku.</p>
+<p>Rakovica, Grabovac a Smoljanac žijí z Plitvic, takže apartmánů je tu nejvíc ze všech záloh. Nevýhoda: v sobotu odpoledne je tu hustý provoz od návštěvníků parku.</p>
+<p><b>Pod stan:</b> <b>Plitvice Holiday Resort</b> u Rakovice (bazén, restaurace, rovné vydlážděné parcely), <b>Camping Plitvice</b> ve Smoljanci a <b>Camp Bear</b> pět kilometrů od jezer. Tady jsou ceny nejvyšší, protože je to u národního parku.</p>
 <h5>Karlovac — 3,5 h před cílem</h5>
-<p>Město na soutoku čtyř řek, hodinu od Záhřebu. Normální městské ubytování, restaurace otevřené i večer. Zastavit tady dává smysl, když se to sype už v Rakousku.</p>
+<p>Město na soutoku čtyř řek, hodinu od Záhřebu. Normální městské ubytování a restaurace otevřené i večer. Zastavit tady dává smysl, když se to sype už v Rakousku.</p>
 <h5>Bihać — 45 min před cílem</h5>
-<p>Poslední záchrana, když jste hranici zvládli, ale došly síly. Město má apartmány i hotely a <b>Bistro River Una</b> je první z 23 restaurací ve městě, u vody. Ráno je to na Štrbački buk stejně daleko jako z Kulen Vakuf.</p>
+<p>Poslední záchrana, když jste zvládli hranici, ale došly síly. Ráno je to na Štrbački buk stejně daleko jako z Kulen Vakuf a <b>Bistro River Una</b> je první z 23 restaurací ve městě.</p>
+<p><b>Pod stan:</b> <b>Auto Kamp Lav</b> u Bihaće, 625 m od centra — <b>půjčuje i malé dvoumístné stany</b>, takže tam jde dorazit i bez vlastního vybavení. Má i dva karavany a dřevěné chatky pro čtyři až pět lidí.</p>
+<h5>A cíl sám</h5>
+<p><b>Camp BUK</b> v Kulen Vakuf leží na široké louce u Uny nad peřejemi, ve stínu vysokých stromů. <b>Otevřeno 1. 4. až 31. 10.</b>, takže konec srpna je bezpečně v sezóně.</p>
 <h5>Kdyby se to sesypalo dřív</h5>
-<p><b>Maribor</b> (6 h před cílem) nebo <b>Záhřeb</b> (4,25 h před cílem) — obojí velké město s okamžitou dostupností ubytování. Tady už ale nejde o zálohu, ale o rozdělení cesty na dva dny, takže druhý den se posune celý program.</p>
-<p class="why">Ať zastavíte kdekoliv, dejte vědět do Camp BUK, že nedorazíte — u kempu není samozřejmé, že bude mít někdo večer službu, a stornopodmínky se řeší líp předem než ráno.</p>
+<p><b>Maribor</b> (6 h před cílem) nebo <b>Záhřeb</b> (4,25 h) — velká města s okamžitou dostupností ubytování. Tady už ale nejde o zálohu, ale o rozdělení cesty na dva dny, takže se posune celý druhý den.</p>
+<p class="why">Ať zastavíte kdekoliv, dejte vědět do Camp BUK, že nedorazíte. U kempu není samozřejmé, že bude mít někdo večer službu, a stornopodmínky se řeší líp předem než ráno.</p>
 </div>
 </details>
 </article>
@@ -1113,29 +1142,29 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 </div>
 
 <h2 id="dalnicni-znamky-a-mytne">Dálniční známky a mýtné: co, kde a za kolik</h2>
-<p class="h2sub">U mýtných bran jde o orientační částku za úseky na naší trase, ne za celou zemi. Kde jsou ceny ověřené a kde ne, je popsané pod tabulkou.</p>
+<p class="h2sub">U mýtných bran jde o orientační částku za úseky na naší trase, ne za celou zemi. Koruny jsou přepočet kurzem ČNB k 21. 8. 2026 (1 € = 24,12 Kč, 100 HUF = 6,646 Kč) — berte je jako orientaci, ne jako to, co vám strhne banka. Kde jsou ceny ověřené a kde ne, je popsané pod tabulkou.</p>
 <div class="tblwrap"><table>
 <thead><tr><th>Země</th><th>Co potřebujete</th><th>Cena</th><th>Kde koupit</th><th>Od kdy platí</th></tr></thead>
 <tbody>
 <tr><td><b>Česko</b></td><td>časová známka, 10 dní</td><td class="num">300 Kč</td>
 <td><a href="https://edalnice.cz" target="_blank" rel="noopener">edalnice.cz</a> nebo benzínka</td><td>od zvoleného data</td></tr>
-<tr><td><b>Rakousko</b></td><td>digitální viněta, 10 dní</td><td class="num">12,80 €</td>
+<tr><td><b>Rakousko</b></td><td>digitální viněta, 10 dní</td><td class="num">12,80 €<br><span style="color:var(--mut);font-size:12.5px">309 Kč</span></td>
 <td><a href="https://shop.asfinag.at" target="_blank" rel="noopener">shop.asfinag.at</a> — <b>zvolit okamžitou platnost</b>, jde to jen u jednodenní a desetidenní. Nebo na benzínce.</td><td>okamžitě, když se zvolí</td></tr>
-<tr><td><b>Slovinsko</b></td><td>e-vinjeta, týdenní</td><td class="num">16,00 €</td>
+<tr><td><b>Slovinsko</b></td><td>e-vinjeta, <b>týdenní</b><br><span style="color:var(--mut);font-size:12.5px">kratší neexistuje</span></td><td class="num">16,00 €<br><span style="color:var(--mut);font-size:12.5px">386 Kč</span></td>
 <td><a href="https://evinjeta.dars.si" target="_blank" rel="noopener">evinjeta.dars.si</a> nebo benzínka u hranice</td><td>okamžitě</td></tr>
-<tr class="r-move"><td><b>Chorvatsko</b></td><td>mýtné brány</td><td class="num">~9,50 €</td>
-<td>na místě, platí se kartou. A2 Macelj–Zaprešić ~6,70 €, A1 Lučko–Karlovac 2,80 €</td><td>—</td></tr>
+<tr class="r-move"><td><b>Chorvatsko</b></td><td>mýtné brány</td><td class="num">~9,50 €<br><span style="color:var(--mut);font-size:12.5px">~229 Kč</span></td>
+<td>na místě, platí se kartou. A2 Macelj–Zaprešić 6,70 € (162 Kč), A1 Lučko–Karlovac 2,80 € (68 Kč)</td><td>—</td></tr>
 <tr class="r-move"><td><b>Bosna</b></td><td>mýtné brány</td><td class="num">pár KM</td>
 <td>na místě. <b>Mějte hotovost</b>, karta nemusí projít</td><td>—</td></tr>
 <tr class="r-move"><td><b>Černá Hora</b></td><td>mýtné brány</td><td class="num">jednotky €</td><td>na místě</td><td>—</td></tr>
 <tr class="r-move"><td><b>Albánie</b></td><td>mýtné brány</td><td class="num">jednotky €</td><td>na místě. Na trase Sukobin–Vlorë–Himarë se skoro nic neplatí</td><td>—</td></tr>
 <tr class="r-move"><td><b>Řecko</b></td><td>mýtné brány</td><td class="num">dle úseku</td>
 <td>na místě. <b>Egnatia od 1. 1. 2026 na 0,04 €/km + DPH</b></td><td>—</td></tr>
-<tr class="r-move"><td><b>S. Makedonie</b></td><td>mýtné brány</td><td class="num">10–12 €</td><td>na místě</td><td>—</td></tr>
-<tr class="r-move"><td><b>Srbsko</b></td><td>mýtné brány</td><td class="num">~19 €</td><td>na místě. Preševo → Bělehrad cca 2 200 RSD</td><td>—</td></tr>
-<tr><td><b>Maďarsko</b></td><td>e-viněta, týdenní</td><td class="num">6 900 HUF</td>
+<tr class="r-move"><td><b>S. Makedonie</b></td><td>mýtné brány</td><td class="num">10–12 €<br><span style="color:var(--mut);font-size:12.5px">240–290 Kč</span></td><td>na místě</td><td>—</td></tr>
+<tr class="r-move"><td><b>Srbsko</b></td><td>mýtné brány</td><td class="num">~19 €<br><span style="color:var(--mut);font-size:12.5px">~458 Kč</span></td><td>na místě. Preševo → Bělehrad cca 2 200 RSD</td><td>—</td></tr>
+<tr><td><b>Maďarsko</b></td><td>e-viněta, týdenní</td><td class="num">6 900 HUF<br><span style="color:var(--mut);font-size:12.5px">459 Kč</span></td>
 <td><a href="https://ematrica.nemzetiutdij.hu" target="_blank" rel="noopener">ematrica.nemzetiutdij.hu</a> (oficiální) nebo benzínka</td><td>od zvoleného data</td></tr>
-<tr><td><b>Slovensko</b></td><td>e-známka, 10 dní</td><td class="num">10,80 €</td>
+<tr><td><b>Slovensko</b></td><td>e-známka, 10 dní</td><td class="num">10,80 €<br><span style="color:var(--mut);font-size:12.5px">260 Kč</span></td>
 <td><a href="https://eznamka.sk" target="_blank" rel="noopener">eznamka.sk</a></td><td>od zvoleného data</td></tr>
 </tbody></table></div>
 <div class="box" style="margin-top:14px"><h4>Odkud ta čísla jsou</h4><ul>
@@ -1145,6 +1174,7 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 </ul></div>
 <div class="box" style="margin-top:14px"><h4>Tři věci, na kterých se dá naletět</h4><ul>
 <li><b>Osmnáctidenní lhůta u rakouské viněty se vás netýká</b>, ale je dobré vědět proč. Digitální viněta koupená online je kvůli zákonné lhůtě na odstoupení od smlouvy platná až 18. den — <b>ale jen u dvouměsíční a roční</b>. U jednodenní a desetidenní se dá v ASFINAG shopu zvolit okamžitá platnost. Ověřeno přímo u ASFINAG 22. 8. 2026.</li>
+<li><b>Slovinsko nemá denní vinětu.</b> Pro osobní auta je nejkratší <b>týdenní za 16 € (386 Kč)</b>, i když Slovinskem projedete za hodinu a půl. Platí sedm po sobě jdoucích dní od zvoleného data. Zpátky se vracíte přes Maďarsko, takže druhou nepotřebujete.</li>
 <li><b>Slovenská e-známka se nejsnáz zapomene</b>, protože Slovenskem se na zpáteční cestě jen projíždí. Bez ní je pokuta.</li>
 <li><b>Desetidenní kupony koupené 29. 8. platí do 7. 9.</b> Domů se jede 12. 9., takže maďarskou a slovenskou vinětu kupujte až na zpáteční cestu, ne teď dopředu.</li>
 </ul></div>
