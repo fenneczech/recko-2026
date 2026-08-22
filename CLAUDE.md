@@ -5,22 +5,22 @@ HTML stránka**. Na repu pracují dva lidé, každý ze svého počítače, oba 
 
 Komunikuj česky.
 
-## POZOR: `index.html` je generovaný soubor
+## `index.html` je zdroj — edituje se ručně
 
-`index.html` **není zdroj — je to výstup generátoru**, který má Klárka u sebe na
-počítači (přepínač `--web` vynechá fotky, PDF verze je s fotkami). Generátor ani
-jeho vstupní data zatím v repu nejsou.
+Stránka kdysi vznikala z generátoru (`build_v4.py`), který měla Klárka u sebe. **Ten
+generátor se ztratil** (ležel ve scratchpadu Claude Code session, která se smazala) a
+nikdo ho nemá. Ověřeno 22. 8. 2026.
 
-Z toho plyne tvrdé pravidlo:
+Z toho plyne:
 
-- **Needituj `index.html` ručně kvůli obsahu.** Při dalším spuštění generátoru se
-  tvoje změna ztratí, aniž si toho kdokoli všimne.
-- Když uživatel chce změnit obsah plánu, **řekni mu tohle** a domluvte se, jestli
-  změnu udělá generátor u Klárky, nebo jestli se do repa nejdřív dostane generátor.
-- Drobná oprava (překlep, rozbitý odkaz) je přijatelná, ale **napiš uživateli, že
-  ji bude potřeba promítnout i do zdroje**, jinak se při dalším generování vrátí.
+- **`index.html` je teď jediný zdroj pravdy.** Edituje se ručně, přímo v repu.
+- Starší pravidlo „needituj index.html, přepíše to generátor" **už neplatí** a nikdo
+  se jím neřiďte — blokovalo by to práci bez důvodu.
+- Pokud by někdo generátor někdy znovu postavil, tohle pravidlo se musí přepsat zpátky.
 
-Dokud generátor nebude v repu, obsah mění primárně Klárka.
+Vedle repa existuje ještě `~/Desktop/WORK/General/recko-balkan-2026/itinerar.html` —
+verze s fotkami, ze které se tiskne PDF. **Je zamrzlá k 10. 8. 2026 a od webu se
+rozešla.** Změny v `index.html` se do ní samy nepromítnou.
 
 ## Co to je
 
