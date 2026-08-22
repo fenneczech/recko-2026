@@ -165,6 +165,27 @@ svg .legt{font:12px var(--sans);fill:var(--ink)}
 .spotbody p{margin:0 0 8px;color:var(--mut)}
 .spotbody b{color:var(--ink)}
 .spotbody .why{font-size:13.2px;font-style:italic;margin-top:11px}
+.basectry{font:11px var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-top:2px}
+.mapfab{position:fixed;right:14px;bottom:14px;z-index:58;display:flex;align-items:center;gap:7px;
+  padding:11px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font:600 13.5px var(--sans);cursor:pointer;box-shadow:0 3px 14px rgba(15,20,26,.16)}
+.mapfab:hover{border-color:var(--acc);color:var(--acc)}
+.mapfab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mapfab svg{width:17px;height:17px;flex:0 0 auto}
+.mapmodal{position:fixed;inset:0;z-index:70;background:rgba(15,20,26,.62);display:none;
+  padding:12px;overflow:auto}
+.mapmodal.on{display:block}
+.mapsheet{background:var(--bg);border-radius:14px;max-width:1000px;margin:0 auto;
+  padding:10px 12px 14px;position:relative}
+.maphead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.maphead h4{margin:0;font:700 15px var(--sans);color:var(--ink)}
+.mapclose{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  width:32px;height:32px;border-radius:50%;font:400 19px var(--mono);line-height:1;cursor:pointer}
+.mapclose:hover{border-color:var(--acc);color:var(--acc)}
+.mapwrap{overflow:auto}
+.mapwrap svg{display:block;margin:0 auto;width:100%;height:auto;min-width:0;color:var(--acc)}
+@media (min-width:760px) and (min-height:620px){.mapwrap svg{width:auto;height:calc(100dvh - 120px)}}
+@media print{.mapfab,.mapmodal{display:none!important}}
 .tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
 table{width:100%;border-collapse:collapse;font-size:14.6px;min-width:560px}
 th{text-align:left;padding:11px 13px;background:var(--sbg);font-size:12px;text-transform:uppercase;
@@ -311,7 +332,7 @@ h2{scroll-margin-top:16px}
 
 <h2 id="ctyri-zakladny-ctyri-noci-na-ceste">Čtyři základny, čtyři noci na cestě</h2>
 <p class="h2sub">15 dní naplánovaných, šestnáctý den je rezerva. Balit budete čtyřikrát.</p>
-<div class="basegrid"><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Sarajevo</b><span class="nights">2 noci</span></div><div class="basedays">dny 2–4</div><p>Kavárny, lanovka na Trebević, Tunel spasa. Výlety: bobová dráha, Vrelo Bosne.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ioannina</b><span class="nights">3 noci</span></div><div class="basedays">dny 6–9</div><p>Město u jezera, hrad, staré město. Výlety: rokle Vikos, Zagori, Meteora.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Parga</b><span class="nights">3 noci</span></div><div class="basedays">dny 9–12</div><p>Městečko pod hradem u moře, promenáda s restauracemi. Výlety: Paxos lodí, řeka Acheron.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ohrid</b><span class="nights">2 noci</span></div><div class="basedays">dny 12–14</div><p>UNESCO jezero, staré město. Den bez auta uprostřed cesty domů.</p></div></div></div>
+<div class="basegrid"><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Sarajevo</b><span class="nights">2 noci</span></div><div class="basectry">Bosna a Hercegovina</div><div class="basedays">dny 2–4</div><p>Kavárny, lanovka na Trebević, Tunel spasa. Výlety: bobová dráha, Vrelo Bosne.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ioannina</b><span class="nights">3 noci</span></div><div class="basectry">Řecko, Epirus</div><div class="basedays">dny 6–9</div><p>Město u jezera, hrad, staré město. Výlety: rokle Vikos, Zagori, Meteora.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Parga</b><span class="nights">3 noci</span></div><div class="basectry">Řecko, Jónské pobřeží</div><div class="basedays">dny 9–12</div><p>Městečko pod hradem u moře, promenáda s restauracemi. Výlety: Paxos lodí, řeka Acheron.</p></div></div><div class="basecard nophoto"><div class="basebody"><div class="basetop"><b>Ohrid</b><span class="nights">2 noci</span></div><div class="basectry">Severní Makedonie</div><div class="basedays">dny 12–14</div><p>UNESCO jezero, staré město. Den bez auta uprostřed cesty domů.</p></div></div></div>
 <div class="box" style="margin-top:14px">
 <h4>Jak to funguje</h4>
 <p>Ze čtrnácti nocí jich <b>deset strávíte na čtyřech místech</b>. Zbylé čtyři jsou přespání na cestě: Una v Bosně, Perast v Boce Kotorské, <b>Himarë na albánské riviéře</b> a Nový Sad při návratu.</p>
@@ -1035,7 +1056,14 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
 <p><b>Mapa:</b> obrysy států Natural Earth (public domain), body a trasy vlastní.</p>
 <p>Verze 2 · 10. 8. 2026 · Claude Opus 5</p>
 </footer>
-</div><script>
+</div>
+<button class="mapfab" id="mapfab" aria-label="Zobrazit mapu okruhu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3z"/><path d="M9 3v15M15 6v15"/></svg>
+Mapa</button>
+<div class="mapmodal" id="mapmodal" role="dialog" aria-modal="true" aria-label="Mapa okruhu" aria-hidden="true">
+<div class="mapsheet"><div class="maphead"><h4>Mapa okruhu</h4><button class="mapclose" aria-label="Zavřít mapu">&times;</button></div>
+<div class="mapwrap"></div></div></div>
+<script>
 (function(){
   var b=document.getElementById('tocbtn'), t=document.getElementById('toc'),
       v=document.getElementById('tocveil'), x=document.getElementById('tocx');
@@ -1080,5 +1108,34 @@ Offline mapy stáhněte pro všechny země <b>před</b> odjezdem.</p>
   window.addEventListener('scroll', function(){
     if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
+})();
+
+/* Plovouci tlacitko Mapa: naklonuje existujici SVG mapu do overlaye. */
+(function(){
+  var btn = document.getElementById('mapfab'), modal = document.getElementById('mapmodal');
+  if (!btn || !modal) return;
+  var wrap = modal.querySelector('.mapwrap'),
+      closeBtn = modal.querySelector('.mapclose'),
+      src = document.querySelector('.mapbox svg'),
+      filled = false;
+  function open(){
+    if (!filled && src) { wrap.appendChild(src.cloneNode(true)); filled = true; }
+    modal.classList.add('on');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    modal.classList.remove('on');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    btn.focus();
+  }
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if (e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('on')) close();
+  });
 })();
 </script></body></html>
